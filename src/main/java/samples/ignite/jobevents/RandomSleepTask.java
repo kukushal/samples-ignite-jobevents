@@ -29,7 +29,7 @@ public class RandomSleepTask extends ComputeTaskSplitAdapter<Integer, Integer> {
                 int pendingTime = (total - newCntr) * avgDuration;
 
                 System.out.format(
-                    "%s\tout of %s\ttasks complete, %.2f\tmore seconds remaining\n",
+                    "%s\tout of %s\tjobs complete, %.2f\tmore seconds remaining\n",
                     newCntr,
                     total,
                     pendingTime / 1000.0);
@@ -48,6 +48,8 @@ public class RandomSleepTask extends ComputeTaskSplitAdapter<Integer, Integer> {
                 }
 
                 ses.setAttribute("COMPLETE", duration);
+
+                System.out.format(">>>>> Job completed in %s ms.\n", duration);
 
                 return duration;
             }
